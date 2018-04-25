@@ -5,6 +5,7 @@ ASP.NET Cheatsheet
 * [MVC](#mvc)
 * [Basic Controller](#basic-controller)
 * [Basic View](#basic-view)
+* [Razor](#razor)
 
 ## MVC
 Model–view–controller (MVC) is an architectural pattern commonly used for developing user interfaces that divides an application into three interconnected parts. This is done to separate internal representations of information from the ways information is presented to and accepted from the user.
@@ -48,3 +49,8 @@ It will return the HTML code in *index.cshtml* file placed in *Views* folder.
 <h1>Hello ASP.NET</h1>
 ```
 Now, you can add function for this view in your controller.
+
+## Razor
+Razor is a markup syntax for embedding server-based code into webpages. The Razor syntax consists of Razor markup, C#, and HTML. Files containing Razor generally have a .cshtml file extension.
+
+For more details, visit [A Razor Cheatsheet](https://github.com/warisali2/razor-cheatsheet).
