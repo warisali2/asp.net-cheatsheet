@@ -4,6 +4,7 @@ ASP.NET Cheatsheet
 ## Table of Contents
 * [MVC](#mvc)
 * [Basic Controller](#basic-controller)
+* [Basic View](#basic-view)
 
 ## MVC
 Model–view–controller (MVC) is an architectural pattern commonly used for developing user interfaces that divides an application into three interconnected parts. This is done to separate internal representations of information from the ways information is presented to and accepted from the user.
@@ -40,3 +41,10 @@ http://web-address/basic/index/
 It will return the HTML code in *index.cshtml* file placed in *Views* folder.
 
 **Note:** We use *basic* instead of *BasicController* in URL for controller name.
+
+## Basic View
+(As per ASP.NET's conventions) Create *hello.cshtml* in *Views* folder and add following code
+```html
+<h1>Hello ASP.NET</h1>
+```
+Now, you can add function for this view in your controller.
