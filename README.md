@@ -38,3 +38,5 @@ To call this action, go to
 http://web-address/basic/index/
 ```
 It will return the HTML code in *index.cshtml* file placed in *Views* folder.
+
+**Note:** We use *basic* instead of *BasicController* in URL for controller name.
