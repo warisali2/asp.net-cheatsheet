@@ -73,3 +73,5 @@ Razor views have a `Layout` property. Individual views specify a layout by setti
 The layout specified can use a full path (example: `/Views/Shared/_Layout.cshtml`) or a partial name (example: `_Layout`). When a partial name is provided, the Razor view engine will search for the layout file using its standard discovery process. The controller-associated folder is searched first, followed by the Shared folder. This discovery process is identical to the one used to discover partial views.
 
 By default, every layout must call `RenderBody`. Wherever the call to `RenderBody` is placed, the contents of the view will be rendered.
+
+**Note:** Default layout is defined in `Views/_ViewStart.cshtml` file.
