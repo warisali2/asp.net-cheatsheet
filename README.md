@@ -7,6 +7,7 @@ ASP.NET Cheatsheet
 * [Basic View](#basic-view)
 * [Razor](#razor)
 * [Layout](#layout)
+  * [Specify Layout for a View](#specify-layout-for-a-view)
 
 ## MVC
 Model–view–controller (MVC) is an architectural pattern commonly used for developing user interfaces that divides an application into three interconnected parts. This is done to separate internal representations of information from the ways information is presented to and accepted from the user.
@@ -60,3 +61,15 @@ For more details, visit [A Razor Cheatsheet](https://github.com/warisali2/razor-
 Most web apps have a common layout that provides the user with a consistent experience as they navigate from page to page. The layout typically includes common user interface elements such as the app header, navigation or menu elements, and footer.
 
 By convention, the default layout for an ASP.NET app is named `_Layout.cshtml`. This layout defines a top level template for views in the app. Apps don't require a layout, and apps can define more than one layout, with different views specifying different layouts.
+
+## Specify Layout for a View
+Razor views have a `Layout` property. Individual views specify a layout by setting this property:
+```
+@{
+    Layout = "_Layout";
+}
+```
+
+The layout specified can use a full path (example: `/Views/Shared/_Layout.cshtml`) or a partial name (example: `_Layout`). When a partial name is provided, the Razor view engine will search for the layout file using its standard discovery process. The controller-associated folder is searched first, followed by the Shared folder. This discovery process is identical to the one used to discover partial views.
+
+By default, every layout must call `RenderBody`. Wherever the call to `RenderBody` is placed, the contents of the view will be rendered.
