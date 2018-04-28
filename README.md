@@ -8,6 +8,7 @@ ASP.NET Cheatsheet
 * [Razor](#razor)
 * [Layout](#layout)
   * [Specify Layout for a View](#specify-layout-for-a-view)
+  * [Section in a Layout](#section-in-a-layout)
 
 ## MVC
 Model–view–controller (MVC) is an architectural pattern commonly used for developing user interfaces that divides an application into three interconnected parts. This is done to separate internal representations of information from the ways information is presented to and accepted from the user.
@@ -75,3 +76,14 @@ The layout specified can use a full path (example: `/Views/Shared/_Layout.cshtml
 By default, every layout must call `RenderBody`. Wherever the call to `RenderBody` is placed, the contents of the view will be rendered.
 
 **Note:** Default layout is defined in `Views/_ViewStart.cshtml` file.
+
+## Section in a Layout
+Sections provide a way to organize where certain page elements should be placed. A layout can optionally reference one or more sections, by calling `RenderSection`. Each call to `RenderSection` can specify whether that section is required or optional. If a required section isn't found, an exception will be thrown. Individual views specify the content to be rendered within a section using the `@section` Razor syntax. If a view defines a section, it must be rendered (or an error will occur).
+
+An example `@section` in a view:
+```html
+@section Scripts 
+{
+     <script type="text/javascript" src="/scripts/main.js"></script>
+}
+```
