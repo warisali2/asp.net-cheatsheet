@@ -9,6 +9,7 @@ ASP.NET Cheatsheet
 * [Layout](#layout)
   * [Specify Layout for a View](#specify-layout-for-a-view)
   * [Section in a Layout](#section-in-a-layout)
+  * [Basic Layout](#basic-layout)
 
 ## MVC
 Model–view–controller (MVC) is an architectural pattern commonly used for developing user interfaces that divides an application into three interconnected parts. This is done to separate internal representations of information from the ways information is presented to and accepted from the user.
@@ -86,4 +87,56 @@ An example `@section` in a view:
 {
      <script type="text/javascript" src="/scripts/main.js"></script>
 }
+```
+
+## Basic Layout
+(As per ASP.NET conventions) Create a `_MyLayout.cshtml` file in `~/Views/Shared/` folder and add following code
+```html
+@
+{
+ Layout = null;
+}
+<html>
+ <head>
+  <title>My Web</title>
+ </head>
+ <body>
+   @RenderBody()
+   
+   <div id="footer">
+     @RenderSection("footer", false);
+   </div>
+ </body>
+</html>
+```
+
+Code of view that uses this layout:
+```html
+@
+{
+ Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<p> Body of view </p>
+
+@section footer
+{
+ <p>Footer area</p>
+}
+```
+
+HTML that will be rendered for this view is:
+```html
+<html>
+ <head>
+  <title>My Web</title>
+ </head>
+ <body>
+   <p> Body of view </p>
+   
+   <div id="footer">
+     <p>Footer area</p>
+   </div>
+ </body>
+</html>
 ```
