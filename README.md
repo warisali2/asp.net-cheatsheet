@@ -6,6 +6,7 @@ ASP.NET Cheatsheet
 * [Basic Controller](#basic-controller)
 * [Basic View](#basic-view)
 * [Razor](#razor)
+* [Layout](#layout)
 
 ## MVC
 Model–view–controller (MVC) is an architectural pattern commonly used for developing user interfaces that divides an application into three interconnected parts. This is done to separate internal representations of information from the ways information is presented to and accepted from the user.
@@ -54,3 +55,8 @@ Now, you can add function for this view in your controller.
 Razor is a markup syntax for embedding server-based code into webpages. The Razor syntax consists of Razor markup, C#, and HTML. Files containing Razor generally have a .cshtml file extension.
 
 For more details, visit [A Razor Cheatsheet](https://github.com/warisali2/razor-cheatsheet).
+
+# Layout
+Most web apps have a common layout that provides the user with a consistent experience as they navigate from page to page. The layout typically includes common user interface elements such as the app header, navigation or menu elements, and footer.
+
+By convention, the default layout for an ASP.NET app is named `_Layout.cshtml`. This layout defines a top level template for views in the app. Apps don't require a layout, and apps can define more than one layout, with different views specifying different layouts.
