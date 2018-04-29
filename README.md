@@ -15,6 +15,7 @@ ASP.NET Cheatsheet
 * [Send Data from Controller to View](#send-data-from-controller-to-view)
   * [ViewBag](#viewbag)
   * [ViewData](#viewdata)
+  * [Pass Model Class to View](#pass-model-class-to-view)
 
 # MVC
 Model–view–controller (MVC) is an architectural pattern commonly used for developing user interfaces that divides an application into three interconnected parts. This is done to separate internal representations of information from the ways information is presented to and accepted from the user.
@@ -218,3 +219,43 @@ ViewData is liked a dictionary and we use same syntax as of dictionary to send d
 ```
 
  **Note:** ViewData is a wrapper around ViewBag. It will throw a runtime exception, if the ViewBag property name matches with the key of ViewData.
+ 
+ ## Pass Model Class to View
+ We can pass the Model class to View to send data.
+ 
+ ```c#
+ public ActionResult Index()
+{
+    Product prod = new Product
+    {
+        Id = 1,
+        Name = "Golf cap",
+        Description = "A nice cap to play golf",
+        price = 10m
+    };
+
+    return View(prod);
+}
+```
+
+To use this in view, we need to tell the view the type of model it is receiving.
+
+```html
+@using AppName.Models
+@model AppName.Models.Product
+ 
+@{
+    ViewBag.Title = "Index";
+}
+ 
+<h2>Index</h2>
+
+<h1>Product</h1>
+<h3>ID: @Model.Id</h3>
+<h3>Name: @Model.Name </h3>
+<h3>Description: @Model.Description</h3>
+<h3>Price: @Model.price</h3>
+```
+
+**Note:** We can only send one object using this method.
+
