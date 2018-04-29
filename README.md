@@ -13,7 +13,8 @@ ASP.NET Cheatsheet
   * [Section in a Layout](#section-in-a-layout)
   * [Basic Layout](#basic-layout)
 * [Send Data from Controller to View](#send-data-from-controller-to-view)
-  * [View Bag](#viewbag)
+  * [ViewBag](#viewbag)
+  * [ViewData](#viewdata)
 
 ## MVC
 Model–view–controller (MVC) is an architectural pattern commonly used for developing user interfaces that divides an application into three interconnected parts. This is done to separate internal representations of information from the ways information is presented to and accepted from the user.
@@ -171,7 +172,7 @@ ViewBag can be useful when you want to transfer temporary data (which is not inc
  
  We use dot notationg to send data from controller.
  ```c#
- public ActionResult Index() //We'll set the ViewBag values in this action
+ public ActionResult Index()
 {
     ViewBag.PageTitle = "This is the page title";
     ViewBag.PageDescription = "This is the page description.  We'll make it rather longer.";
@@ -190,3 +191,30 @@ ViewBag can be useful when you want to transfer temporary data (which is not inc
 ```
 
  **Note:** ViewBag is a wrapper around ViewData. It will throw a runtime exception, if the ViewBag property name matches with the key of ViewData.
+ 
+ ## ViewData
+ViewData is similar to ViewBag. It is useful in transferring data from Controller to View. It is a dictionary which can contain key-value pairs where each key must be string.
+ 
+ **Note:** The ViewData's life only lasts during the current http request. ViewData values will be null if redirection occurs.
+ 
+ViewData is liked a dictionary and we use same syntax as of dictionary to send data from controller.
+ ```c#
+ public ActionResult Index()
+{
+    ViewData["PageTitle"] = "This is the page title";
+    ViewData["PageDescription"] = "This is the page description.  We'll make it rather longer.";
+
+    return View();
+}
+ ```
+ 
+ This can be accessed in the view like @ViewBag.PageTitle.
+ ```html
+<h3>@ViewData["PageTitle"]</h3>
+
+<p>
+    @ViewData["PageDescription"]
+</p>
+```
+
+ **Note:** ViewData is a wrapper around ViewBag. It will throw a runtime exception, if the ViewBag property name matches with the key of ViewData.
