@@ -12,6 +12,8 @@ ASP.NET Cheatsheet
   * [Specify Layout for a View](#specify-layout-for-a-view)
   * [Section in a Layout](#section-in-a-layout)
   * [Basic Layout](#basic-layout)
+* [Send Data from Controller to View](#send-data-from-controller-to-view)
+  * [View Bag](#viewbag)
 
 ## MVC
 Model–view–controller (MVC) is an architectural pattern commonly used for developing user interfaces that divides an application into three interconnected parts. This is done to separate internal representations of information from the ways information is presented to and accepted from the user.
@@ -158,3 +160,33 @@ HTML that will be rendered for this view is:
  </body>
 </html>
 ```
+
+# Send Data from Controller to View
+There three ways to send data from Controller to View.
+
+## ViewBag
+ViewBag can be useful when you want to transfer temporary data (which is not included in model) from the controller to the view. The ViewBag is a dynamic type property. You can assign any number of properties and values to ViewBag. If you assign the same property name multiple times to ViewBag, then it will only consider last value assigned to the property.
+ 
+ **Note:** The ViewBag's life only lasts during the current http request. ViewBag values will be null if redirection occurs.
+ 
+ We use dot notationg to send data from controller.
+ ```c#
+ public ActionResult Index() //We'll set the ViewBag values in this action
+{
+    ViewBag.PageTitle = "This is the page title";
+    ViewBag.PageDescription = "This is the page description.  We'll make it rather longer.";
+
+    return View();
+}
+ ```
+ 
+ This can be accessed in the view like @ViewBag.PageTitle.
+ ```html
+<h3>@ViewBag.PageTitle</h3>
+
+<p>
+    @ViewBag.PageDescription
+</p>
+```
+
+ **Note:** ViewBag is a wrapper around ViewData. It will throw a runtime exception, if the ViewBag property name matches with the key of ViewData.
