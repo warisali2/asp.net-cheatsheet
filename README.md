@@ -3,7 +3,8 @@ ASP.NET Cheatsheet
 
 ## Table of Contents
 * [MVC](#mvc)
-* [Basic Controller](#basic-controller)
+* [Controller](#controller)
+  * [Basic Controller](#basic-controller)
 * [Basic View](#basic-view)
 * [Razor](#razor)
 * [Layout](#layout)
@@ -22,6 +23,9 @@ http://web-address/controller-name/function-name
 **Model** is responsible for managing the data of the application.
 
 **View** means presentation of the model in a particular format. It can be output representation of information, such as a chart or a diagram. Multiple views of the same information are possible, such as a bar chart for management and a tabular view for accountants.
+
+# Controller
+Controller accepts input and converts it to commands for the model or view. It is a class which contains actions and functions.
 
 ## Basic Controller
 (As per ASP.NET MVC's conventions) Create a *BasicController.cs* in Controllers directory and add following code
