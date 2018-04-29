@@ -5,6 +5,7 @@ ASP.NET Cheatsheet
 * [MVC](#mvc)
 * [Controller](#controller)
   * [Basic Controller](#basic-controller)
+  * [Action Verb](#action-verb)
 * [Basic View](#basic-view)
 * [Razor](#razor)
 * [Layout](#layout)
@@ -50,6 +51,19 @@ http://web-address/basic/index/
 It will return the HTML code in *index.cshtml* file placed in *Views* folder.
 
 **Note:** We use *basic* instead of *BasicController* in URL for controller name.
+
+## Action Verb
+Action Verbs are used to control the selection of action based on request method. There are different action verbs available in ASP.NET MVC. For example `HttpPost`, `HttpGet` and `HttpDelete`
+
+```C#
+[HttpGet]
+//Accepts only Get requests
+public ActionResult GetMethod(int id) { ... }
+
+//Accepts both Post and Get requests
+[AcceptVerbs(HttpVerbs.Post | HttpVerbs.Get)]
+public ActionResult PostAndGetMethod(MyEditViewModel myEditViewModel) { ... }
+```
 
 ## Basic View
 (As per ASP.NET's conventions) Create *hello.cshtml* in *Views* folder and add following code
