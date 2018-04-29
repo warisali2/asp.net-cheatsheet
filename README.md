@@ -1,7 +1,7 @@
 # ASP.NET Cheatsheet
 ASP.NET Cheatsheet
 
-## Table of Contents
+# Table of Contents
 * [MVC](#mvc)
 * [Controller](#controller)
   * [Basic Controller](#basic-controller)
@@ -16,7 +16,7 @@ ASP.NET Cheatsheet
   * [ViewBag](#viewbag)
   * [ViewData](#viewdata)
 
-## MVC
+# MVC
 Model–view–controller (MVC) is an architectural pattern commonly used for developing user interfaces that divides an application into three interconnected parts. This is done to separate internal representations of information from the ways information is presented to and accepted from the user.
 
 **Controller** accepts input and converts it to commands for the model or view. It is a class which contains actions and functions. A request to controller can be made by 
@@ -68,14 +68,14 @@ public ActionResult GetMethod(int id) { ... }
 public ActionResult PostAndGetMethod(MyEditViewModel myEditViewModel) { ... }
 ```
 
-## Basic View
+# Basic View
 (As per ASP.NET's conventions) Create *hello.cshtml* in *Views* folder and add following code
 ```html
 <h1>Hello ASP.NET</h1>
 ```
 Now, you can add function for this view in your controller.
 
-## Razor
+# Razor
 Razor is a markup syntax for embedding server-based code into webpages. The Razor syntax consists of Razor markup, C#, and HTML. Files containing Razor generally have a .cshtml file extension.
 
 For more details, visit [A Razor Cheatsheet](https://github.com/warisali2/razor-cheatsheet).
@@ -192,7 +192,7 @@ ViewBag can be useful when you want to transfer temporary data (which is not inc
 
  **Note:** ViewBag is a wrapper around ViewData. It will throw a runtime exception, if the ViewBag property name matches with the key of ViewData.
  
- ## ViewData
+## ViewData
 ViewData is similar to ViewBag. It is useful in transferring data from Controller to View. It is a dictionary which can contain key-value pairs where each key must be string.
  
  **Note:** The ViewData's life only lasts during the current http request. ViewData values will be null if redirection occurs.
